@@ -8,12 +8,7 @@
 
 package HW11.edu.fitchburgstate.csc7400.duckpond.ducks;
 
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyBehaviorFactory;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.SimpleFly;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.DuckQuack;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehaviorFactory;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SimpleSwim;
-import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehaviorFactory;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.BehaviorStrategy;
 
 /** 
  *  Redhead duck for pond
@@ -26,8 +21,6 @@ public class Redhead extends Duck {
   public Redhead() {
 		super("Redhead",
 				"redhead.bmp",
-		FlyBehaviorFactory.createFlyBehavior("redhead flap"),
-		SwimBehaviorFactory.createSwimBehavior("redhead paddle"),
-		QuackBehaviorFactory.createQuackBehavior(null)
+	BehaviorStrategy.getBehaviors("redhead flap","redhead paddle", QuackType.DUCK));
   }
 }

@@ -8,6 +8,7 @@
 package HW11.edu.fitchburgstate.csc7400.duckpond.ducks;
 
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.BehaviorHelper;
+import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.BehaviorStrategy;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.fly.FlyingBehavior;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.quack.QuackBehavior;
 import HW11.edu.fitchburgstate.csc7400.duckpond.behaviors.swim.SwimBehavior;
@@ -32,17 +33,27 @@ public class Duck implements DuckType {
 	 * @param quackingBehavior
 	 *            the quacking behavior
 	 */
+        /*
+	 *public Duck(String duckTypeName,
+	 *		String bitmapFilename, 
+	 *		FlyingBehavior flyingBehavior, 
+	 *		SwimBehavior swimmingBehavior, 
+	 *		QuackBehavior quackingBehavior) {
+	 *	this.duckTypeName = duckTypeName;
+	 *	this.still = BehaviorHelper.createBitmap(bitmapFilename);
+	 *	this.flyBehavior = flyingBehavior;
+	 *	this.swimBehavior = swimmingBehavior;
+	 *	this.quackBehavior = quackingBehavior;
+	}*/
 
-	public Duck(String duckTypeName,
+	        public Duck(String duckTypeName,
 			String bitmapFilename, 
-			FlyingBehavior flyingBehavior, 
-			SwimBehavior swimmingBehavior, 
-			QuackBehavior quackingBehavior) {
+			BehaviorStrategy behaviorStrategy) {
 		this.duckTypeName = duckTypeName;
 		this.still = BehaviorHelper.createBitmap(bitmapFilename);
-		this.flyBehavior = flyingBehavior;
-		this.swimBehavior = swimmingBehavior;
-		this.quackBehavior = quackingBehavior;
+		this.flyBehavior = behaviorStrategy.getFlyBehavior();
+		this.swimBehavior = behaviorStrategy.getSwimBehavior();
+		this.quackBehavior = behaviorStrategy.getQuackBehavior();
 	}
 
 	/**
